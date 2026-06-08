@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ШОРЕШ — навигатор репатриации в Израиль</title>
+<meta name="description" content="ШОРЕШ — навигатор репатриации в Израиль для русскоязычных. Проверь своё право по корням, получи маршрут, документы и льготы под свою линию.">
+<meta property="og:title" content="ШОРЕШ — корень твоей алии">
+<meta property="og:description" content="Проверь право на репатриацию в Израиль за 2 минуты. Маршрут, документы, льготы — без воды.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3EBDC; --bgDeep:#E8DBC2; --ink:#1C2A3A; --inkSoft:#35465C;
+    --gold:#B8893B; --goldSoft:#D4A95C; --cream:#FBF6EC; --line:#D8C7A6; --teal:#2E5E54;
+    --serif:'Cormorant Garamond',Georgia,serif; --sans:'Manrope',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans); color:var(--ink); line-height:1.6;
+    background:
+      radial-gradient(120% 80% at 50% 0%, var(--cream) 0%, var(--bg) 46%, var(--bgDeep) 100%) fixed;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  /* зернистость поверх — ощущение бумаги */
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:680px; margin:0 auto; padding:0 22px; position:relative; z-index:2}
+  .reveal{opacity:0; transform:translateY(16px); animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1; transform:none}}
+
+  /* HERO */
+  header{padding:56px 0 30px; text-align:center}
+  .mono{
+    width:74px; height:74px; margin:0 auto 22px; border-radius:20px;
+    background:linear-gradient(150deg, var(--ink), var(--teal));
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 18px 40px -18px rgba(28,42,58,.7); border:1px solid rgba(212,169,92,.35);
+    animation-delay:.05s;
+  }
+  .mono span{font-family:var(--serif); font-size:42px; font-weight:600; color:var(--goldSoft); line-height:1}
+  .kicker{font-size:12px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:14px; animation-delay:.12s}
+  h1{font-family:var(--serif); font-size:60px; line-height:1; font-weight:600; letter-spacing:-.01em; animation-delay:.18s}
+  .tag{font-family:var(--serif); font-style:italic; font-size:23px; color:var(--inkSoft); margin-top:6px; animation-delay:.24s}
+  .rule{width:60px; height:3px; background:linear-gradient(90deg,var(--gold),var(--goldSoft)); border-radius:99px; margin:22px auto; animation-delay:.3s}
+  .lede{font-size:17px; color:var(--inkSoft); max-width:520px; margin:0 auto; animation-delay:.36s}
+  .cta-row{margin-top:30px; display:flex; flex-direction:column; gap:11px; align-items:center; animation-delay:.44s}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:9px;
+    padding:16px 30px; border-radius:99px; font-family:var(--sans); font-size:16px; font-weight:700;
+    text-decoration:none; cursor:pointer; border:none; transition:transform .15s, box-shadow .2s; width:100%; max-width:360px;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--gold),var(--goldSoft)); color:var(--cream); box-shadow:0 14px 30px -12px rgba(184,137,59,.8)}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 18px 36px -12px rgba(184,137,59,.9)}
+  .btn-ghost{background:var(--cream); color:var(--ink); border:1.5px solid var(--line)}
+  .btn-ghost:hover{transform:translateY(-2px)}
+
+  /* SECTIONS */
+  section{padding:30px 0}
+  .eyebrow{font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); font-weight:700; text-align:center; margin-bottom:8px}
+  h2{font-family:var(--serif); font-size:34px; font-weight:600; text-align:center; line-height:1.1; margin-bottom:26px}
+  .card{
+    background:var(--cream); border:1.5px solid var(--line); border-radius:18px; padding:22px 22px;
+    margin-bottom:14px; box-shadow:0 10px 26px -20px rgba(28,42,58,.5);
+  }
+  .card h3{font-family:var(--serif); font-size:23px; font-weight:600; margin-bottom:5px; display:flex; align-items:center; gap:10px}
+  .card p{font-size:15px; color:var(--inkSoft)}
+  .dot{width:30px; height:30px; flex:0 0 30px; border-radius:9px; background:linear-gradient(135deg,rgba(184,137,59,.16),rgba(46,94,84,.12)); display:flex; align-items:center; justify-content:center; font-size:16px}
+
+  /* STEPS */
+  .step{display:flex; gap:16px; align-items:flex-start; margin-bottom:20px}
+  .num{font-family:var(--serif); font-size:38px; font-weight:600; color:var(--gold); line-height:1; flex:0 0 auto; width:40px; text-align:center}
+  .step h3{font-family:var(--sans); font-size:17px; font-weight:700; margin-bottom:2px}
+  .step p{font-size:15px; color:var(--inkSoft)}
+
+  /* TIMELINE */
+  .timeline{position:relative; padding-left:8px}
+  .tl{position:relative; display:flex; gap:16px; align-items:flex-start; padding-bottom:22px}
+  .tl::before{content:""; position:absolute; left:21px; top:38px; bottom:-4px; width:2px; background:linear-gradient(var(--gold),var(--line))}
+  .tl-last::before{display:none}
+  .tl-dot{flex:0 0 44px; width:44px; height:44px; border-radius:13px; background:var(--cream); border:1.5px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow:0 8px 20px -14px rgba(28,42,58,.5); z-index:1}
+  .tl-body h3{font-family:var(--sans); font-size:17px; font-weight:700; margin:6px 0 2px}
+  .tl-body p{font-size:14.5px; color:var(--inkSoft)}
+
+  /* TRUST */
+  .trust{background:linear-gradient(150deg,var(--ink),var(--teal)); border-radius:22px; padding:30px 24px; color:var(--cream); text-align:center; box-shadow:0 22px 50px -24px rgba(28,42,58,.8)}
+  .trust .eyebrow{color:var(--goldSoft)}
+  .trust h2{color:var(--cream)}
+  .trust p{font-size:15px; color:rgba(251,246,236,.82); max-width:520px; margin:0 auto 14px}
+  .srcs{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:6px}
+  .srcs span{font-size:12px; font-weight:600; color:var(--goldSoft); border:1px solid rgba(212,169,92,.4); border-radius:99px; padding:5px 12px}
+
+  /* WAITLIST */
+  .wait{text-align:center}
+  form{display:flex; flex-direction:column; gap:10px; max-width:380px; margin:18px auto 0}
+  input[type=email]{
+    font-family:var(--sans); font-size:16px; padding:15px 18px; border-radius:14px;
+    border:1.5px solid var(--line); background:var(--cream); color:var(--ink); outline:none; width:100%;
+  }
+  input[type=email]:focus{border-color:var(--gold)}
+  .thanks{display:none; font-size:16px; color:var(--teal); font-weight:700; margin-top:14px}
+  .micro{font-size:12.5px; color:var(--inkSoft); opacity:.8; margin-top:10px}
+
+  footer{padding:34px 0 60px; text-align:center; border-top:1px solid var(--line); margin-top:30px}
+  footer a{color:var(--gold); font-weight:600; text-decoration:none}
+  .foot-links{font-size:13px; margin-bottom:10px}
+  .disc{font-size:12px; color:var(--inkSoft); opacity:.75; max-width:520px; margin:0 auto; line-height:1.55}
+
+  @media(max-width:480px){ h1{font-size:48px} h2{font-size:28px} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="mono reveal"><span>ש</span></div>
+    <div class="kicker reveal">Навигатор репатриации в Израиль</div>
+    <h1 class="reveal">ШОРЕШ</h1>
+    <div class="tag reveal">корень твоей алии</div>
+    <div class="rule reveal"></div>
+    <p class="lede reveal">Весь путь репатриации в одном месте — от проверки права по корням до первого года жизни в Израиле. Маршрут, документы, сроки и льготы под твою линию, без потерянных месяцев.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#wait">Узнать о запуске</a>
+      <a class="btn btn-ghost" href="#path">Весь путь алии</a>
+    </div>
+  </header>
+
+  <section id="what">
+    <div class="eyebrow">Что это</div>
+    <h2>Путь к алие — по шагам</h2>
+    <div class="card">
+      <h3><span class="dot">🧬</span> Проверка права</h3>
+      <p>Шесть вопросов — и ты видишь свою линию (еврей, ребёнок, внук или супруг), вероятность и первый шаг. По открытым критериям Закона о возвращении.</p>
+    </div>
+    <div class="card">
+      <h3><span class="dot">📋</span> Маршрут и документы</h3>
+      <p>Персональная цепочка документов под твою линию, чек-листы по этапам, сроки и порядок — от консульской проверки до первого года в Израиле.</p>
+    </div>
+    <div class="card">
+      <h3><span class="dot">🎁</span> Льготы без воды</h3>
+      <p>Корзина абсорбции, бесплатный ульпан, ввоз имущества, 10 лет без налога на зарубежный доход — что положено именно тебе и когда это оформлять.</p>
+    </div>
+  </section>
+
+  <section id="path">
+    <div class="eyebrow">Весь путь</div>
+    <h2>От корней до первого года</h2>
+    <p class="lede" style="text-align:center;margin:0 auto 24px">ШОРЕШ ведёт через все этапы алии — каждый с чек-листом документов, сроками и подсказками.</p>
+    <div class="timeline">
+      <div class="tl"><div class="tl-dot">🧬</div><div class="tl-body"><h3>Проверка права</h3><p>Линия родства и вероятность по Закону о возвращении.</p></div></div>
+      <div class="tl"><div class="tl-dot">📜</div><div class="tl-body"><h3>Документы и цепочка</h3><p>Какие бумаги искать и как восстановить родословную линию.</p></div></div>
+      <div class="tl"><div class="tl-dot">🏛️</div><div class="tl-body"><h3>Консульская проверка</h3><p>Подача через Натив/Сохнут, интервью, виза репатрианта.</p></div></div>
+      <div class="tl"><div class="tl-dot">✈️</div><div class="tl-body"><h3>Прилёт и статус оле</h3><p>Теудат-оле, первые документы и выплата прямо в аэропорту.</p></div></div>
+      <div class="tl"><div class="tl-dot">🏦</div><div class="tl-body"><h3>Банк и Битуах Леуми</h3><p>Счёт, чековая книжка, постановка на учёт.</p></div></div>
+      <div class="tl"><div class="tl-dot">➕</div><div class="tl-body"><h3>Медицина</h3><p>Больничная касса, льготы по взносам, доп. страховка.</p></div></div>
+      <div class="tl"><div class="tl-dot">💰</div><div class="tl-body"><h3>Корзина и льготы</h3><p>Выплаты, таможня, права, налоги — что и когда оформлять.</p></div></div>
+      <div class="tl"><div class="tl-dot">📚</div><div class="tl-body"><h3>Ульпан</h3><p>Бесплатный иврит и сроки, когда нужно успеть начать.</p></div></div>
+      <div class="tl tl-last"><div class="tl-dot">🏡</div><div class="tl-body"><h3>Жильё и первый год</h3><p>Аренда с чеками и гарантом, обустройство, армия и учёба.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="trust">
+      <div class="eyebrow">Почему нам можно верить</div>
+      <h2>Выверено по источникам</h2>
+      <p>Контент сверен с официальными и профильными источниками, рядом с материалами — ссылки и дата проверки. Это навигатор-ориентир, а не юридическая консультация: решение о праве принимают консул и МВД Израиля.</p>
+      <div class="srcs"><span>Закон о возвращении</span><span>Сохнут</span><span>gov.il</span><span>Натив</span><span>Коль Зхут</span></div>
+    </div>
+  </section>
+
+  <section id="wait" class="wait">
+    <div class="eyebrow">Скоро запуск</div>
+    <h2>Будь первым</h2>
+    <p class="lede">Оставь почту — пришлём ссылку, как только проверка станет доступна. Без спама, только запуск.</p>
+    <form id="waitForm">
+      <input type="email" name="email" id="waitEmail" placeholder="твоя почта" required>
+      <button type="submit" class="btn btn-primary">Уведомить о запуске</button>
+    </form>
+    <div class="thanks" id="thanks">Спасибо! Откроется письмо — отправь его, и мы напишем тебе на запуске.</div>
+    <p class="micro">Нажимая, ты соглашаешься с <a href="/terms.html">Условиями</a> и <a href="/privacy.html">Политикой данных</a>.</p>
+  </section>
+
+  <footer>
+    <div class="foot-links"><a href="/terms.html">Условия</a> · <a href="/privacy.html">Политика данных</a> · <a href="mailto:hello@shoresh.app">Связаться</a></div>
+    <p class="disc">ШОРЕШ — информационный навигатор по репатриации. Не юридическая консультация и не государственный сервис. Информация — ориентир по официальным источникам; правила и суммы меняются, сверяйся с первоисточником.</p>
+  </footer>
+
+</div>
+
+<script>
+  // Плавное появление при скролле
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.animationDelay='0s';e.target.classList.add('reveal');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.card,.step,.trust,.wait .lede').forEach(el=>{el.style.opacity='0';io.observe(el)});
+
+  // Форма: показать «спасибо» без перезагрузки (работает после подстановки Formspree ID)
+  // Лист ожидания через почту — работает сразу, без бэкенда.
+  // Чтобы собирать заявки автоматически — заведи форму на formspree.io и замени тело обработчика на fetch к её адресу.
+  const f=document.getElementById('waitForm');
+  const NOTIFY_EMAIL='hello@shoresh.app'; // ← замени на свой адрес
+  f.addEventListener('submit',(ev)=>{
+    ev.preventDefault();
+    const em=document.getElementById('waitEmail').value.trim();
+    const subj=encodeURIComponent('ШОРЕШ — хочу узнать о запуске');
+    const body=encodeURIComponent('Сообщите мне, когда откроется проверка.\nМоя почта: '+em);
+    window.location.href='mailto:'+NOTIFY_EMAIL+'?subject='+subj+'&body='+body;
+    document.getElementById('thanks').style.display='block';
+    f.style.display='none';
+  });
+</script>
+</body>
+</html>
